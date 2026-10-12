@@ -1,0 +1,42 @@
+.build/
+.tools/
+vendor/
+models/
+dist/
+.DS_Store
+*.xcuserstate
+.swiftpm/
+artifacts/
+__pycache__/
+
+# Android generated files and signing material
+android/.gradle/
+android/**/build/
+android/local.properties
+*.jks
+*.keystore
+android/signing.properties
+
+# Private data, local credentials and generated platform artifacts
+.env
+.env.*
+!.env.example
+*.pem
+*.p12
+*.pfx
+*.key
+*.mobileprovision
+*.sqlite*
+*.db
+*.log
+node_modules/
+desktop/out/
+desktop/release/
+desktop/test-results/
+desktop/playwright-report/
+# Historical machine-specific reports stay local
+AUDIT-2026-09-08.md
+RELEASE-1*.md
+android/RELEASE-0*.md
+
+desktop/runtime/

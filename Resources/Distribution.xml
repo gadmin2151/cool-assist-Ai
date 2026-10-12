@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<installer-gui-script minSpecVersion="2">
+  <title>Cool Assist Ai 2.0.0</title>
+  <options customize="never" require-scripts="false" hostArchitectures="arm64"/>
+  <allowed-os-versions><os-version min="15.0"/></allowed-os-versions>
+  <domains enable_localSystem="true" enable_currentUserHome="false" enable_anywhere="false"/>
+  <choices-outline><line choice="main"/></choices-outline>
+  <choice id="main" visible="false" title="Cool Assist Ai">
+    <pkg-ref id="cc.idomus.meet-secretar"/>
+  </choice>
+  <pkg-ref id="cc.idomus.meet-secretar" version="2.0.0" onConclusion="none">CoolAssistAi-component.pkg</pkg-ref>
+</installer-gui-script>

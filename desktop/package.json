@@ -1,0 +1,101 @@
+{
+  "name": "cool-assist-ai",
+  "productName": "Cool Assist Ai",
+  "version": "2.0.0",
+  "description": "Meeting recording, live transcription, grounded summaries and Markdown",
+  "author": {
+    "name": "Cool Assist Ai",
+    "email": "gadmin2151@users.noreply.github.com"
+  },
+  "homepage": "https://github.com/gadmin2151/cool-assist-Ai",
+  "desktopName": "cool-assist-ai.desktop",
+  "private": true,
+  "main": "out/main.cjs",
+  "scripts": {
+    "build": "tsc --noEmit && node scripts/build.mjs",
+    "start": "electron .",
+    "test": "tsx --test test/*.test.ts",
+    "package:win": "pnpm build && electron-builder --win nsis --x64 --publish never",
+    "package:linux": "pnpm build && electron-builder --linux deb --x64 --publish never",
+    "format": "prettier --write src scripts/*.mjs test",
+    "format:check": "prettier --check src scripts/*.mjs test"
+  },
+  "build": {
+    "appId": "cc.idomus.cool-assist-ai",
+    "productName": "Cool Assist Ai",
+    "directories": {
+      "output": "../dist/desktop",
+      "buildResources": "assets"
+    },
+    "files": [
+      "out/**/*",
+      "package.json"
+    ],
+    "asar": true,
+    "toolsets": {
+      "wine": "1.0.1"
+    },
+    "artifactName": "Cool-Assist-Ai-${version}-${os}-${arch}.${ext}",
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "assets/icon.png",
+      "signExecutable": false
+    },
+    "nsis": {
+      "differentialPackage": false,
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "deleteAppDataOnUninstall": false,
+      "include": "assets/installer.nsh",
+      "runAfterFinish": false
+    },
+    "linux": {
+      "target": [
+        "deb"
+      ],
+      "icon": "assets/icon.png",
+      "category": "Office",
+      "syncDesktopName": true,
+      "maintainer": "Cool Assist Ai <gadmin2151@users.noreply.github.com>",
+      "desktop": {
+        "entry": {
+          "StartupWMClass": "cool-assist-ai"
+        }
+      }
+    },
+    "deb": {
+      "depends": [
+        "libgtk-3-0",
+        "libnss3",
+        "libasound2",
+        "libgbm1",
+        "libxss1",
+        "libsecret-1-0",
+        "xdg-utils",
+        "libgomp1"
+      ]
+    },
+    "extraResources": [
+      {
+        "from": "runtime/${os}-${arch}",
+        "to": "native"
+      },
+      {
+        "from": "../Resources/Licenses",
+        "to": "licenses"
+      }
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "26.6.5",
+    "electron": "44.7.0",
+    "electron-builder": "26.15.3",
+    "esbuild": "0.28.2",
+    "prettier": "3.8.1",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3"
+  }
+}

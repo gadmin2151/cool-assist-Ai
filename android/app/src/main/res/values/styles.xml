@@ -1,0 +1,11 @@
+<resources>
+    <style name="Theme.MeetProtocol" parent="android:style/Theme.Material.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:colorAccent">#D60000</item>
+        <item name="android:windowBackground">#202123</item>
+        <item name="android:navigationBarColor">#191A1D</item>
+    </style>
+</resources>

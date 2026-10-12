@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+    <key>CFBundleDevelopmentRegion</key><string>ru</string>
+    <key>CFBundleDisplayName</key><string>Cool Assist Ai</string>
+    <key>CFBundleName</key><string>Cool Assist Ai</string>
+    <key>CFBundleExecutable</key><string>MeetProtocol</string>
+    <key>CFBundleIdentifier</key><string>cc.idomus.meet-secretar</string>
+    <key>CFBundlePackageType</key><string>APPL</string>
+    <key>CFBundleShortVersionString</key><string>2.0.0</string>
+    <key>CFBundleVersion</key><string>13</string>
+    <key>CFBundleIconFile</key><string>AppIcon</string>
+    <key>LSMinimumSystemVersion</key><string>15.0</string>
+    <key>NSHighResolutionCapable</key><true/>
+    <key>NSMicrophoneUsageDescription</key><string>Cool Assist Ai записывает ваш голос для локальной расшифровки встречи. Аудио не отправляется в облако.</string>
+    <key>NSScreenCaptureUsageDescription</key><string>Cool Assist Ai сохраняет экран, звук встречи и текст слайдов для локального протокола.</string>
+    <key>NSAudioCaptureUsageDescription</key><string>Cool Assist Ai записывает звук Meet, Zoom, Teams и других приложений для локальной расшифровки.</string>
+    <key>NSPrincipalClass</key><string>NSApplication</string>
+</dict></plist>
