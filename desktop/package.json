@@ -68,6 +68,8 @@
     },
     "deb": {
       "depends": [
+        "libc6 (>= 2.34)",
+        "libstdc++6 (>= 12)",
         "libgtk-3-0",
         "libnss3",
         "libasound2",
@@ -75,7 +77,8 @@
         "libxss1",
         "libsecret-1-0",
         "xdg-utils",
-        "libgomp1"
+        "libgomp1",
+        "libssl3 | libssl3t64"
       ]
     },
     "extraResources": [

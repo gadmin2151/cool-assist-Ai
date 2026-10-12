@@ -27,14 +27,23 @@
 
 ## Установщики
 
+**[Скачать Cool Assist Ai 2.0.0 — GitHub Releases](https://github.com/gadmin2151/cool-assist-Ai/releases/tag/v2.0.0)**
+
 | Платформа | Пакет 2.0.0 | Установка |
 |---|---|---|
 | macOS 15+, Apple Silicon | `CoolAssistAi-2.0.0-AppleSilicon.dmg` | Перенесите приложение в «Программы» |
 | Android 10+ | `CoolAssistAi-Android-2.0.0.apk` | Откройте APK на телефоне |
 | Windows 10/11 x64 | `Cool-Assist-Ai-2.0.0-win-x64.exe` | Запустите мастер установки |
-| Debian / Ubuntu x64 | `Cool-Assist-Ai-2.0.0-linux-amd64.deb` | `sudo apt install ./Cool-Assist-Ai-2.0.0-linux-amd64.deb` |
+| Debian 12+ / Ubuntu 22.04+ x64 | `Cool-Assist-Ai-2.0.0-linux-amd64.deb` | `sudo apt install ./Cool-Assist-Ai-2.0.0-linux-amd64.deb` |
 
-Исходники находятся в Git. Собранные установщики и SHA-256 сохраняются в `dist/`, а не в истории репозитория. Для самостоятельной сборки используйте инструкции ниже. macOS-пакет не нотариализован Apple, Windows-пакет не имеет Authenticode-подписи; подробности приведены в [отчёте выпуска](RELEASE-2.0.0.md).
+В релизе доступны установщики и `SHA256SUMS.txt`. macOS DMG включает локальные модели и превышает лимит одного файла GitHub: скачайте обе части `.dmg.part01` и `.dmg.part02` вместе с `INSTALL-macOS.txt`, затем объедините их в одном каталоге:
+
+```sh
+cat CoolAssistAi-2.0.0-AppleSilicon.dmg.part01 CoolAssistAi-2.0.0-AppleSilicon.dmg.part02 > CoolAssistAi-2.0.0-AppleSilicon.dmg
+shasum -a 256 CoolAssistAi-2.0.0-AppleSilicon.dmg
+```
+
+Сравните SHA-256 с указанным в `INSTALL-macOS.txt`, откройте DMG и перенесите приложение в «Программы». При локальной сборке цельный DMG и дополнительный PKG остаются в `dist/`. Установщики не включаются в историю Git. macOS-пакет не нотариализован Apple, Windows-пакет не имеет Authenticode-подписи; подробности приведены в [отчёте выпуска](RELEASE-2.0.0.md).
 
 ## Возможности платформ
 
@@ -76,7 +85,7 @@
 
 - macOS 15+, Apple Silicon; локальные модели занимают несколько гигабайт. Рекомендуется 16 ГБ RAM для комфортной одновременной работы.
 - Android: требования SDK указаны в `android/app/build.gradle.kts`; тестирование новых beta-версий Android требует отдельной проверки на устройстве.
-- Windows 10/11 x64; Linux x64 с GTK 3, libgomp1, аудиосервером и доступным Secret Service для постоянного хранения ключа.
+- Windows 10/11 x64; Debian 12+ или обновлённая Ubuntu 22.04+ x64. DEB требует glibc 2.34+, libstdc++6 12+, OpenSSL 3, GTK 3 и libgomp1; используйте `apt install`, чтобы установить зависимости. Нужны аудиосервер и доступный Secret Service для постоянного хранения ключа.
 - Облачная обработка требует интернета и оплаченного доступа к выбранным моделям.
 
 ## Сборка macOS
